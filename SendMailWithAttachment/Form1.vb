@@ -45,7 +45,7 @@ Public Class Form1
                 SMTP.EnableSsl = True
                 SMTP.Port = "587"
                 SMTP.Host = "smtp.gmail.com" 
-                SMTP.Credentials = New Net.NetworkCredential("userName711", "aaaa bbbb cccc dddd") '//Remove the @gmail.com and CHANGE THIS to your user name and API KEY 'OLD KEYsbkz lxnj yrnz cash
+                SMTP.Credentials = New Net.NetworkCredential("userName711", "aaaa bbbb cccc dddd") '//Remove the @gmail.com and CHANGE THIS to your user name and API KEY 'OLD KEY: sbkz lxnj yrnz cash
                 SMTP.Send(mail)
 
             End Using
