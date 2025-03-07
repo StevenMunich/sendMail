@@ -1,3 +1,5 @@
+This program is to demonstrate using SMTP e-mail for programming. Also has a keylogger demonstration.
+
 Visual Basic - Send mail with instructions to google smtp API key. 
 after you get your API key its basic plug-in-play
 
